@@ -1,6 +1,8 @@
 # 🌿 EkoIA - Análisis de Balance de Carbono en Colombia
 
-![EkoIA Logo](./src/assets/EkoIA.png)
+![EkoIA Logo](./src/assets/EkoIA.png) 
+
+## Prueba aquí: [![Link](eko-hcaxhfo60-maalejandrarojasgarzon-2008s-projects.vercel.app)](eko-hcaxhfo60-maalejandrarojasgarzon-2008s-projects.vercel.app)
 
 > **EcoBalance360**: Analítica territorial y datos abiertos para un futuro carbono neutral.
 
