@@ -1,7 +1,7 @@
 // src/services/api.ts
 import { fetch } from '@tauri-apps/api/http'; // Si usas tauri, si no, usa el fetch nativo del navegador
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://co2-microservice-43561778582.us-central1.run.app';
 
 // Tipos para los filtros
 export interface DashboardFilters {
@@ -35,7 +35,7 @@ export const fetchAvailableOptions = async (): Promise<FilterOptions> => {
   const res = await window.fetch(`${API_URL}/stats/available-options`);
   if (!res.ok) {
     // Retorno fallback si el endpoint no está listo aún para evitar crash
-    return { years: [2020, 2021, 2022, 2023], regions: [], categories: [] }; 
+    return { years: [2020, 2021, 2022, 2023], regions: [], categories: [] };
   }
   return res.json();
 };
@@ -49,10 +49,10 @@ export const fetchGeneralStats = async (filters?: DashboardFilters) => {
 
 export const fetchRegionStats = async (filters?: DashboardFilters) => {
   const query = buildQuery(filters);
-  const finalQuery = query 
-    ? `${query}&by=REGION` 
+  const finalQuery = query
+    ? `${query}&by=REGION`
     : '?by=REGION';
-    
+
   const res = await window.fetch(`${API_URL}/stats/regions${finalQuery}`);
   if (!res.ok) throw new Error('Error fetching region stats');
   return res.json();
