@@ -5,13 +5,14 @@ import os
 from pathlib import Path
 
 # Directorios base
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 MODELS_DIR = BASE_DIR / "models"
 
 # Rutas de archivos
-DATA_FILE = DATA_DIR / "factores_limpios.csv"
+DATA_FILE = DATA_DIR / "factores_limpios.xlsx"
 MODEL_FILE = MODELS_DIR / "co2_model.pkl"
+LAND_USE_MODEL_PATH = MODELS_DIR / "land_use_model.pkl"
 
 # Configuración del modelo
 MODEL_CONFIG = {

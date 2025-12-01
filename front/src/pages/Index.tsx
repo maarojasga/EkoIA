@@ -1,70 +1,52 @@
 import Hero from '@/components/Hero';
 import ProjectInfo from '@/components/ProjectInfo';
-import Map from '@/components/Map';
-import Statistics from '@/components/Statistics';
 import { motion } from 'framer-motion';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Map as MapIcon, BarChart3 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, LayoutDashboard } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Hero />
       <ProjectInfo />
       
-      <section id="dashboard" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-6">
+      {/* Sección CTA para ir al Dashboard */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="max-w-2xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
-              Explorador de Datos Climáticos
+            <h2 className="text-4xl font-heading font-bold text-foreground mb-6">
+              Explora los Datos en Tiempo Real
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Visualiza las emisiones de carbono a través de mapas interactivos o análisis estadísticos detallados.
+            <p className="text-lg text-muted-foreground mb-10">
+              Accede a nuestro dashboard interactivo para visualizar mapas de calor, 
+              analizar tendencias históricas y filtrar emisiones por región y sector económico.
             </p>
+            
+            <Link to="/dashboard">
+              <Button size="lg" className="h-14 px-8 text-lg gap-3 shadow-elegant hover:scale-105 transition-transform">
+                <LayoutDashboard className="w-5 h-5" />
+                Acceder al Dashboard
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
           </motion.div>
-
-          <Tabs defaultValue="map" className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid w-full max-w-[400px] grid-cols-2">
-                <TabsTrigger value="map" className="flex items-center gap-2">
-                  <MapIcon className="w-4 h-4" /> Mapa Interactivo
-                </TabsTrigger>
-                <TabsTrigger value="stats" className="flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4" /> Análisis Detallado
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="map" className="mt-0">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Map />
-              </motion.div>
-            </TabsContent>
-
-            <TabsContent value="stats" className="mt-0">
-              <Statistics />
-            </TabsContent>
-          </Tabs>
         </div>
       </section>
 
-      <footer className="py-12 bg-secondary text-white">
+      <footer className="py-12 bg-secondary text-white mt-auto">
         <div className="container mx-auto px-6 text-center">
           <p className="text-lg mb-2">
             EkoIA - Análisis de Balance de Carbono en Colombia
           </p>
           <p className="text-white/70">
-            Desarrollado por EMKUBAR para EcoBalance360
+            Desarrollado por EMKUBAR para EkoIA
           </p>
         </div>
       </footer>

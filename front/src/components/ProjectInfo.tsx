@@ -15,7 +15,7 @@ const ProjectInfo = () => {
         {/* Introduction */}
         <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-            EcoBalance360
+            EkoIA
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Buscamos analizar y visualizar el balance de carbono en Colombia, identificar territorios emisores y sumideros de CO₂, 
